@@ -9,7 +9,7 @@ class DummyData {
     return const [
       FlowerModel(
         nama: 'Mawar Merah',
-        gambar: 'assets/images/img_mawar_merah.png',
+        gambar: 'assets/images/img_mawar_merah.jpg',
         deskripsi: 'Mawar merah adalah bunga yang paling populer di dunia dengan kelopak halus dan aroma wangi yang khas.',
         bahasaBunga: 'Cinta yang mendalam, hasrat, dan keberanian. Melambangkan perasaan romantis yang tulus dan abadi.',
         asalDaerah: 'Asia Barat & Eropa',
@@ -30,28 +30,28 @@ class DummyData {
       ),
       FlowerModel(
         nama: 'Lavender',
-        gambar: 'assets/images/img_lavender.png',
+        gambar: 'assets/images/img_lavender.jpg',
         deskripsi: 'Lavender dikenal dengan warna ungu lembut dan aromanya yang menenangkan jiwa.',
         bahasaBunga: 'Ketenangan, kesetiaan, dan keheningan. Melambangkan rasa cinta yang diam namun mendalam.',
         asalDaerah: 'Mediterania',
       ),
       FlowerModel(
         nama: 'Bunga Matahari',
-        gambar: 'assets/images/img_bunga_matahari.png',
+        gambar: 'assets/images/img_bunga_matahari.jpg',
         deskripsi: 'Bunga matahari selalu menghadap ke arah matahari, mencerminkan kesetiaan dan keceriaan.',
         bahasaBunga: 'Kesetiaan, kebahagiaan, dan harapan. Simbol kekaguman yang hangat kepada seseorang.',
         asalDaerah: 'Amerika Utara',
       ),
       FlowerModel(
         nama: 'Sakura',
-        gambar: 'assets/images/img_sakura.png',
+        gambar: 'assets/images/img_sakura.jpg',
         deskripsi: 'Sakura atau bunga ceri Jepang mekar singkat namun meninggalkan kesan yang tak terlupakan.',
         bahasaBunga: 'Keindahan yang fana, kehidupan yang singkat namun bermakna. Melambangkan kelembutan dan kecantikan.',
         asalDaerah: 'Jepang & Korea',
       ),
       FlowerModel(
         nama: 'Anggrek Bulan',
-        gambar: 'assets/images/img_anggrek_bulan.png',
+        gambar: 'assets/images/img_anggrek_bulan.jpg',
         deskripsi: 'Anggrek bulan adalah bunga nasional Indonesia yang anggun dengan kelopak lebar berwarna putih.',
         bahasaBunga: 'Keanggunan, kemewahan, dan keindahan abadi. Simbol cinta yang halus dan penuh pesona.',
         asalDaerah: 'Indonesia',
@@ -72,7 +72,7 @@ class DummyData {
       ),
       FlowerModel(
         nama: 'Dahlia',
-        gambar: 'assets/images/img_dahlia.png',
+        gambar: 'assets/images/img_dahlia.jpg',
         deskripsi: 'Dahlia memiliki kelopak berlapis yang rumit dengan warna-warna yang kaya dan beragam.',
         bahasaBunga: 'Komitmen abadi, keanggunan, dan kekuatan batin. Melambangkan ikatan yang tidak mudah goyah.',
         asalDaerah: 'Meksiko & Amerika Tengah',
