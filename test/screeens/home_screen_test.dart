@@ -1,4 +1,4 @@
-// test/widget/screens/home_screen_test.dart
+// test/screeens/home_screen_test.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -38,11 +38,11 @@ void main() {
       expect(find.text('Home'), findsOneWidget);
     });
 
-    testWidgets('menampilkan teks "Delcom Plants"', (tester) async {
+    testWidgets('menampilkan teks "Delcom Flowers"', (tester) async {
       await tester.pumpWidget(buildHomeTest());
       await tester.pumpAndSettle();
 
-      expect(find.textContaining('Delcom Plants'), findsOneWidget);
+      expect(find.textContaining('Delcom Flowers'), findsOneWidget);
     });
 
     testWidgets('menampilkan minimal satu Card', (tester) async {
@@ -52,12 +52,12 @@ void main() {
       expect(find.byType(Card), findsWidgets);
     });
 
-    testWidgets('menampilkan emoji tanaman', (tester) async {
+    testWidgets('menampilkan emoji bunga', (tester) async {
       await tester.pumpWidget(buildHomeTest());
       await tester.pumpAndSettle();
 
-      // Cek keberadaan setidaknya satu emoji
-      expect(find.textContaining('🌱'), findsOneWidget);
+      // Cek keberadaan setidaknya satu emoji bunga
+      expect(find.textContaining('🌸'), findsWidgets);
     });
 
     testWidgets('tombol toggle light mode tersedia di AppBar', (tester) async {

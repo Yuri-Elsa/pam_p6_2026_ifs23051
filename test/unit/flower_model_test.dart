@@ -1,11 +1,11 @@
-// test/unit/dummy_data_test.dart
+// test/unit/flower_model_test.dart
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pam_p6_2026_ifs23051/data/dummy_data.dart';
 import 'package:pam_p6_2026_ifs23051/data/models/flower_model.dart';
 
 void main() {
-  group('DummyData.getFlowersData()', () {
+  group('FlowerModel', () {
     late List<FlowerModel> flowers;
 
     setUp(() {

@@ -1,4 +1,4 @@
-// test/widget/screens/flowers_screen_test.dart
+// test/screeens/flowers_screen_test.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -8,11 +8,11 @@ import 'package:pam_p6_2026_ifs23051/core/theme/theme_notifier.dart';
 import 'package:pam_p6_2026_ifs23051/data/dummy_data.dart';
 import 'package:pam_p6_2026_ifs23051/features/flowers/flowers_screen.dart';
 
-Widget buildPlantsTest() {
+Widget buildFlowersTest() {
   final notifier = ThemeNotifier(initial: ThemeMode.light);
   final router = GoRouter(routes: [
-    GoRoute(path: '/', builder: (_, _) => const PlantsScreen()),
-    GoRoute(path: '/plants/:name', builder: (_, _) => const SizedBox()),
+    GoRoute(path: '/', builder: (_, __) => const FlowersScreen()),
+    GoRoute(path: '/flowers/:name', builder: (_, __) => const SizedBox()),
   ]);
 
   return ThemeProvider(
@@ -25,47 +25,47 @@ Widget buildPlantsTest() {
 }
 
 void main() {
-  group('PlantsScreen', () {
+  group('FlowersScreen', () {
     testWidgets('merender tanpa error', (tester) async {
-      await tester.pumpWidget(buildPlantsTest());
+      await tester.pumpWidget(buildFlowersTest());
       await tester.pumpAndSettle();
 
-      expect(find.byType(PlantsScreen), findsOneWidget);
+      expect(find.byType(FlowersScreen), findsOneWidget);
     });
 
-    testWidgets('menampilkan judul "Plants" di AppBar', (tester) async {
-      await tester.pumpWidget(buildPlantsTest());
+    testWidgets('menampilkan judul "Flowers" di AppBar', (tester) async {
+      await tester.pumpWidget(buildFlowersTest());
       await tester.pumpAndSettle();
 
-      expect(find.text('Plants'), findsOneWidget);
+      expect(find.text('Flowers'), findsOneWidget);
     });
 
     testWidgets('menampilkan tombol search di AppBar', (tester) async {
-      await tester.pumpWidget(buildPlantsTest());
+      await tester.pumpWidget(buildFlowersTest());
       await tester.pumpAndSettle();
 
       expect(find.byIcon(Icons.search), findsOneWidget);
     });
 
-    testWidgets('menampilkan semua tanaman dari DummyData', (tester) async {
-      await tester.pumpWidget(buildPlantsTest());
+    testWidgets('menampilkan semua bunga dari DummyData', (tester) async {
+      await tester.pumpWidget(buildFlowersTest());
       await tester.pumpAndSettle();
 
-      final plants = DummyData.getPlantsData();
-      // Cek nama tanaman pertama tampil
-      expect(find.text(plants.first.nama), findsOneWidget);
+      final flowers = DummyData.getFlowersData();
+      // Cek nama bunga pertama tampil
+      expect(find.text(flowers.first.nama), findsOneWidget);
     });
 
-    testWidgets('menampilkan list tanaman menggunakan ListView', (tester) async {
-      await tester.pumpWidget(buildPlantsTest());
+    testWidgets('menampilkan list bunga menggunakan ListView', (tester) async {
+      await tester.pumpWidget(buildFlowersTest());
       await tester.pumpAndSettle();
 
       expect(find.byType(ListView), findsOneWidget);
     });
 
-    testWidgets('fungsi search memfilter tanaman berdasarkan nama',
+    testWidgets('fungsi search memfilter bunga berdasarkan nama',
             (tester) async {
-          await tester.pumpWidget(buildPlantsTest());
+          await tester.pumpWidget(buildFlowersTest());
           await tester.pumpAndSettle();
 
           // Buka search
@@ -73,23 +73,23 @@ void main() {
           await tester.pumpAndSettle();
 
           // Ketik query
-          await tester.enterText(find.byType(TextField), 'Wortel');
+          await tester.enterText(find.byType(TextField), 'Mawar Merah');
           await tester.pumpAndSettle();
 
-          // Hanya Wortel yang tampil
+          // Hanya Mawar Merah yang tampil
           expect(
             find.descendant(
               of: find.byType(ListView),
-              matching: find.text('Wortel'),
+              matching: find.text('Mawar Merah'),
             ),
             findsOneWidget,
           );
-          expect(find.text('Tomat'), findsNothing);
+          expect(find.text('Lavender'), findsNothing);
         });
 
     testWidgets('menampilkan pesan saat tidak ada hasil pencarian',
             (tester) async {
-          await tester.pumpWidget(buildPlantsTest());
+          await tester.pumpWidget(buildFlowersTest());
           await tester.pumpAndSettle();
 
           await tester.tap(find.byIcon(Icons.search));
@@ -99,17 +99,17 @@ void main() {
           await tester.enterText(find.byType(TextField), 'xyzabc123');
           await tester.pumpAndSettle();
 
-          expect(find.text('Tidak ada data!'), findsOneWidget);
+          expect(find.text('Tidak ada bunga ditemukan!'), findsOneWidget);
         });
 
-    testWidgets('menutup search mereset daftar tanaman', (tester) async {
-      await tester.pumpWidget(buildPlantsTest());
+    testWidgets('menutup search mereset daftar bunga', (tester) async {
+      await tester.pumpWidget(buildFlowersTest());
       await tester.pumpAndSettle();
 
       await tester.tap(find.byIcon(Icons.search));
       await tester.pumpAndSettle();
 
-      await tester.enterText(find.byType(TextField), 'Wortel');
+      await tester.enterText(find.byType(TextField), 'Mawar Merah');
       await tester.pumpAndSettle();
 
       await tester.tap(find.byIcon(Icons.close));
@@ -117,13 +117,13 @@ void main() {
 
       // Scroll ke bawah sampai data terakhir
       await tester.scrollUntilVisible(
-        find.text(DummyData.getPlantsData().last.nama),
+        find.text(DummyData.getFlowersData().last.nama),
         500,
       );
 
       // Pastikan data terakhir tampil
       expect(
-        find.text(DummyData.getPlantsData().last.nama),
+        find.text(DummyData.getFlowersData().last.nama),
         findsOneWidget,
       );
     });

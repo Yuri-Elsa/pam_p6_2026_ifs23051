@@ -17,7 +17,7 @@ Widget buildNavTestApp(String initialRoute) {
             Scaffold(body: child, bottomNavigationBar: BottomNavWidget(child: child)),
         routes: [
           GoRoute(path: '/', builder: (_, __) => const SizedBox(key: Key('home'))),
-          GoRoute(path: '/plants', builder: (_, __) => const SizedBox(key: Key('plants'))),
+          GoRoute(path: '/flowers', builder: (_, __) => const SizedBox(key: Key('flowers'))),
           GoRoute(path: '/profile', builder: (_, __) => const SizedBox(key: Key('profile'))),
         ],
       ),
@@ -40,7 +40,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Home'), findsOneWidget);
-      expect(find.text('Plants'), findsOneWidget);
+      expect(find.text('Flowers'), findsOneWidget);
       expect(find.text('Profile'), findsOneWidget);
     });
 
@@ -51,15 +51,15 @@ void main() {
       expect(find.byIcon(Icons.home), findsOneWidget);
     });
 
-    testWidgets('menekan Plants menavigasi ke halaman Plants', (tester) async {
+    testWidgets('menekan Flowers menavigasi ke halaman Flowers', (tester) async {
       await tester.pumpWidget(buildNavTestApp('/'));
       await tester.pumpAndSettle();
 
-      await tester.tap(find.text('Plants'));
+      await tester.tap(find.text('Flowers'));
       await tester.pumpAndSettle();
 
-      // Halaman plants dirender
-      expect(find.byKey(const Key('plants')), findsOneWidget);
+      // Halaman flowers dirender
+      expect(find.byKey(const Key('flowers')), findsOneWidget);
     });
 
     testWidgets('menekan Profile menavigasi ke halaman Profile', (tester) async {

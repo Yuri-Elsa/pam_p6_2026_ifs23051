@@ -14,16 +14,16 @@ void main() {
       expect(find.widgetWithText(AppBar, 'Home'), findsOneWidget);
     });
 
-    testWidgets('navigasi dari Home ke Plants via BottomNav', (tester) async {
+    testWidgets('navigasi dari Home ke Flowers via BottomNav', (tester) async {
       await tester.pumpWidget(const DelcomPlantsApp());
       await tester.pumpAndSettle();
 
-      // Tap Plants di bottom nav
-      await tester.tap(find.text('Plants'));
+      // Tap Flowers di bottom nav
+      await tester.tap(find.text('Flowers'));
       await tester.pumpAndSettle();
 
-      // Halaman Plants muncul
-      expect(find.text('Plants'), findsWidgets);
+      // Halaman Flowers muncul
+      expect(find.text('Flowers'), findsWidgets);
       expect(find.byIcon(Icons.search), findsOneWidget);
     });
 
@@ -61,48 +61,48 @@ void main() {
           await tester.tap(find.byIcon(Icons.light_mode_outlined));
           await tester.pumpAndSettle();
 
-          // Pindah ke Plants
-          await tester.tap(find.text('Plants'));
+          // Pindah ke Flowers
+          await tester.tap(find.text('Flowers'));
           await tester.pumpAndSettle();
 
           // Ikon tetap dark_mode
           expect(find.byIcon(Icons.dark_mode_outlined), findsOneWidget);
         });
 
-    testWidgets('pencarian di halaman Plants dapat menemukan tanaman',
+    testWidgets('pencarian di halaman Flowers dapat menemukan bunga',
             (tester) async {
           await tester.pumpWidget(const DelcomPlantsApp());
           await tester.pumpAndSettle();
 
-          // Navigasi ke Plants
-          await tester.tap(find.byKey(const Key('Plants')));
+          // Navigasi ke Flowers
+          await tester.tap(find.byKey(const Key('Flowers')));
           await tester.pumpAndSettle();
 
           // Buka search
           await tester.tap(find.byIcon(Icons.search));
           await tester.pumpAndSettle();
 
-          // Ketik nama tanaman
-          await tester.enterText(find.byType(TextField), 'Tomat');
+          // Ketik nama bunga
+          await tester.enterText(find.byType(TextField), 'Mawar Merah');
           await tester.pumpAndSettle();
 
-          // Hanya Tomat yang tampil
+          // Hanya Mawar Merah yang tampil
           expect(
             find.descendant(
               of: find.byType(ListView),
-              matching: find.text('Tomat'),
+              matching: find.text('Mawar Merah'),
             ),
             findsOneWidget,
           );
         });
 
-    testWidgets('navigasi kembali ke Home dari Plants menggunakan BottomNav',
+    testWidgets('navigasi kembali ke Home dari Flowers menggunakan BottomNav',
             (tester) async {
           await tester.pumpWidget(const DelcomPlantsApp());
           await tester.pumpAndSettle();
 
-          // Navigasi ke Plants
-          await tester.tap(find.byKey(const Key('Plants')));
+          // Navigasi ke Flowers
+          await tester.tap(find.byKey(const Key('Flowers')));
           await tester.pumpAndSettle();
 
           // Kembali ke Home
@@ -110,7 +110,7 @@ void main() {
           await tester.pumpAndSettle();
 
           // Home ditampilkan
-          expect(find.textContaining('Delcom Plants'), findsOneWidget);
+          expect(find.textContaining('Delcom Flowers'), findsOneWidget);
         });
   });
 }
