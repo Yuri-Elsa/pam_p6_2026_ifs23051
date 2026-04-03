@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/home/home_screen.dart';
-import '../../features/plants/plants_detail_screen.dart';
-import '../../features/plants/plants_screen.dart';
+import '../../features/flowers/flowers_detail_screen.dart';
+import '../../features/flowers/flowers_screen.dart';
 import '../../features/profile/profile_screen.dart';
 import '../constants/route_constants.dart';
 import '../../shared/widgets/bottom_nav_widget.dart';
@@ -12,26 +12,22 @@ import '../../shared/widgets/bottom_nav_widget.dart';
 final GoRouter appRouter = GoRouter(
   initialLocation: RouteConstants.home,
   routes: [
-    // Shell Route digunakan agar bottom navigation bar
-    // tidak di-rebuild setiap berpindah halaman
     ShellRoute(
-      builder: (context, state, child) {
-        return MainShell(child: child);
-      },
+      builder: (context, state, child) => MainShell(child: child),
       routes: [
         GoRoute(
           path: RouteConstants.home,
           builder: (context, state) => const HomeScreen(),
         ),
         GoRoute(
-          path: RouteConstants.plants,
-          builder: (context, state) => const PlantsScreen(),
+          path: RouteConstants.flowers,
+          builder: (context, state) => const FlowersScreen(),
         ),
         GoRoute(
-          path: RouteConstants.plantsDetail,
+          path: RouteConstants.flowersDetail,
           builder: (context, state) {
-            final plantName = state.pathParameters['name'] ?? '';
-            return PlantsDetailScreen(plantName: plantName);
+            final name = state.pathParameters['name'] ?? '';
+            return FlowersDetailScreen(flowerName: name);
           },
         ),
         GoRoute(
@@ -43,11 +39,8 @@ final GoRouter appRouter = GoRouter(
   ],
 );
 
-/// Shell widget yang membungkus semua halaman
-/// dan menampilkan bottom navigation bar
 class MainShell extends StatelessWidget {
   const MainShell({super.key, required this.child});
-
   final Widget child;
 
   @override

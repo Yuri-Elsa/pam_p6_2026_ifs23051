@@ -1,28 +1,28 @@
-// lib/features/plants/plants_screen.dart
+// lib/features/flowers/flowers_screen.dart
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/constants/route_constants.dart';
 import '../../data/dummy_data.dart';
-import '../../data/models/plant_model.dart';
+import '../../data/models/flower_model.dart';
 import '../../shared/widgets/top_app_bar_widget.dart';
 
-class PlantsScreen extends StatefulWidget {
-  const PlantsScreen({super.key});
+class FlowersScreen extends StatefulWidget {
+  const FlowersScreen({super.key});
 
   @override
-  State<PlantsScreen> createState() => _PlantsScreenState();
+  State<FlowersScreen> createState() => _FlowersScreenState();
 }
 
-class _PlantsScreenState extends State<PlantsScreen> {
-  List<PlantModel> _plants = DummyData.getPlantsData();
+class _FlowersScreenState extends State<FlowersScreen> {
+  List<FlowerModel> _flowers = DummyData.getFlowersData();
   String _searchQuery = '';
 
   void _onSearchQueryChange(String query) {
     setState(() {
       _searchQuery = query;
-      _plants = DummyData.getPlantsData()
-          .where((p) => p.nama.toLowerCase().contains(query.toLowerCase()))
+      _flowers = DummyData.getFlowersData()
+          .where((f) => f.nama.toLowerCase().contains(query.toLowerCase()))
           .toList();
     });
   }
@@ -31,38 +31,34 @@ class _PlantsScreenState extends State<PlantsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: TopAppBarWidget(
-        title: 'Plants',
+        title: 'Flowers',
         withSearch: true,
         searchQuery: _searchQuery,
         onSearchQueryChange: _onSearchQueryChange,
       ),
-      body: _PlantsBody(
-        plants: _plants,
-        onOpen: (plantName) {
-          // Navigasi ke detail dengan path parameter
-          context.go('${RouteConstants.plants}/$plantName');
-        },
+      body: _FlowersBody(
+        flowers: _flowers,
+        onOpen: (name) => context.go('${RouteConstants.flowers}/$name'),
       ),
     );
   }
 }
 
-class _PlantsBody extends StatelessWidget {
-  const _PlantsBody({required this.plants, required this.onOpen});
-
-  final List<PlantModel> plants;
+class _FlowersBody extends StatelessWidget {
+  const _FlowersBody({required this.flowers, required this.onOpen});
+  final List<FlowerModel> flowers;
   final ValueChanged<String> onOpen;
 
   @override
   Widget build(BuildContext context) {
-    if (plants.isEmpty) {
+    if (flowers.isEmpty) {
       return Center(
         child: Card(
           margin: const EdgeInsets.all(16),
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Text(
-              'Tidak ada data!',
+              'Tidak ada bunga ditemukan!',
               style: Theme.of(context).textTheme.bodyMedium,
               textAlign: TextAlign.center,
             ),
@@ -73,21 +69,16 @@ class _PlantsBody extends StatelessWidget {
 
     return ListView.builder(
       padding: const EdgeInsets.all(16),
-      itemCount: plants.length,
-      itemBuilder: (context, index) {
-        return _PlantItemCard(
-          plant: plants[index],
-          onOpen: onOpen,
-        );
-      },
+      itemCount: flowers.length,
+      itemBuilder: (context, index) =>
+          _FlowerItemCard(flower: flowers[index], onOpen: onOpen),
     );
   }
 }
 
-class _PlantItemCard extends StatelessWidget {
-  const _PlantItemCard({required this.plant, required this.onOpen});
-
-  final PlantModel plant;
+class _FlowerItemCard extends StatelessWidget {
+  const _FlowerItemCard({required this.flower, required this.onOpen});
+  final FlowerModel flower;
   final ValueChanged<String> onOpen;
 
   @override
@@ -101,16 +92,15 @@ class _PlantItemCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
-        onTap: () => onOpen(plant.nama),
+        onTap: () => onOpen(flower.nama),
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Row(
             children: [
-              // Gambar tanaman
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Image.asset(
-                  plant.gambar,
+                  flower.gambar,
                   width: 70,
                   height: 70,
                   fit: BoxFit.cover,
@@ -118,26 +108,46 @@ class _PlantItemCard extends StatelessWidget {
                     width: 70,
                     height: 70,
                     color: colorScheme.primaryContainer,
-                    child: Icon(Icons.eco, color: colorScheme.primary),
+                    child: Icon(Icons.local_florist, color: colorScheme.primary),
                   ),
                 ),
               ),
               const SizedBox(width: 12),
-
-              // Nama dan deskripsi
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      plant.nama,
+                      flower.nama,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: 4),
+                    Row(
+                      children: [
+                        Icon(Icons.auto_stories,
+                            size: 13, color: colorScheme.primary),
+                        const SizedBox(width: 4),
+                        Expanded(
+                          child: Text(
+                            flower.bahasaBunga,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall
+                                ?.copyWith(
+                              color: colorScheme.primary,
+                              fontStyle: FontStyle.italic,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
                     Text(
-                      plant.deskripsi,
+                      flower.deskripsi,
                       style: Theme.of(context).textTheme.bodyMedium,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,

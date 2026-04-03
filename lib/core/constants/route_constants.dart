@@ -3,8 +3,8 @@
 class RouteConstants {
   RouteConstants._();
 
-  static const String home = '/';
-  static const String plants = '/plants';
-  static const String plantsDetail = '/plants/:name';
+  static const String home    = '/';
+  static const String flowers = '/flowers';
+  static const String flowersDetail = '/flowers/:name';
   static const String profile = '/profile';
 }

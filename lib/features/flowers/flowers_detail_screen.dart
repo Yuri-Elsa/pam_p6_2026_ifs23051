@@ -1,67 +1,54 @@
-// lib/features/plants/plants_detail_screen.dart
+// lib/features/flowers/flowers_detail_screen.dart
 
 import 'package:flutter/material.dart';
 import '../../data/dummy_data.dart';
-import '../../data/models/plant_model.dart';
+import '../../data/models/flower_model.dart';
 import '../../shared/widgets/loading_widget.dart';
 import '../../shared/widgets/top_app_bar_widget.dart';
 
-class PlantsDetailScreen extends StatefulWidget {
-  const PlantsDetailScreen({super.key, required this.plantName});
-
-  final String plantName;
+class FlowersDetailScreen extends StatefulWidget {
+  const FlowersDetailScreen({super.key, required this.flowerName});
+  final String flowerName;
 
   @override
-  State<PlantsDetailScreen> createState() => _PlantsDetailScreenState();
+  State<FlowersDetailScreen> createState() => _FlowersDetailScreenState();
 }
 
-class _PlantsDetailScreenState extends State<PlantsDetailScreen> {
-  PlantModel? _plant;
+class _FlowersDetailScreenState extends State<FlowersDetailScreen> {
+  FlowerModel? _flower;
 
   @override
   void initState() {
     super.initState();
-    // Simulasi async data loading
     Future.microtask(() {
-      final result = DummyData.getPlantsData()
-          .where((p) => p.nama == widget.plantName)
+      final result = DummyData.getFlowersData()
+          .where((f) => f.nama == widget.flowerName)
           .firstOrNull;
       if (mounted) {
-        setState(() => _plant = result);
-        // Kembali jika data tidak ditemukan
-        if (result == null && mounted) {
-          Navigator.of(context).pop();
-        }
+        setState(() => _flower = result);
+        if (result == null && mounted) Navigator.of(context).pop();
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_plant == null) {
+    if (_flower == null) {
       return Scaffold(
-        appBar: TopAppBarWidget(
-          title: widget.plantName,
-          showBackButton: true,
-        ),
+        appBar: TopAppBarWidget(title: widget.flowerName, showBackButton: true),
         body: const LoadingWidget(),
       );
     }
-
     return Scaffold(
-      appBar: TopAppBarWidget(
-        title: _plant!.nama,
-        showBackButton: true,
-      ),
-      body: _PlantsDetailBody(plant: _plant!),
+      appBar: TopAppBarWidget(title: _flower!.nama, showBackButton: true),
+      body: _FlowersDetailBody(flower: _flower!),
     );
   }
 }
 
-class _PlantsDetailBody extends StatelessWidget {
-  const _PlantsDetailBody({required this.plant});
-
-  final PlantModel plant;
+class _FlowersDetailBody extends StatelessWidget {
+  const _FlowersDetailBody({required this.flower});
+  final FlowerModel flower;
 
   @override
   Widget build(BuildContext context) {
@@ -69,13 +56,12 @@ class _PlantsDetailBody extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [
-          // Gambar dan nama
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16),
             child: Column(
               children: [
                 Image.asset(
-                  plant.gambar,
+                  flower.gambar,
                   width: double.infinity,
                   height: 250,
                   fit: BoxFit.contain,
@@ -83,7 +69,7 @@ class _PlantsDetailBody extends StatelessWidget {
                     height: 250,
                     color: Theme.of(context).colorScheme.primaryContainer,
                     child: Icon(
-                      Icons.eco,
+                      Icons.local_florist,
                       size: 80,
                       color: Theme.of(context).colorScheme.primary,
                     ),
@@ -91,26 +77,31 @@ class _PlantsDetailBody extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  plant.nama,
+                  flower.nama,
                   style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
                 ),
+                const SizedBox(height: 4),
+                Text(
+                  '📍 ${flower.asalDaerah}',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
+                ),
               ],
             ),
           ),
-
-          // Section Deskripsi
-          _InfoCard(title: 'Deskripsi', content: plant.deskripsi),
+          _InfoCard(
+            title: '🌸 Bahasa Bunga',
+            content: flower.bahasaBunga,
+            highlight: true,
+          ),
           const SizedBox(height: 16),
-
-          // Section Manfaat
-          _InfoCard(title: 'Manfaat', content: plant.manfaat),
+          _InfoCard(title: '📖 Deskripsi', content: flower.deskripsi),
           const SizedBox(height: 16),
-
-          // Section Efek Samping
-          _InfoCard(title: 'Efek Samping', content: plant.efekSamping),
+          _InfoCard(title: '🗺️ Asal Daerah', content: flower.asalDaerah),
           const SizedBox(height: 24),
         ],
       ),
@@ -118,12 +109,16 @@ class _PlantsDetailBody extends StatelessWidget {
   }
 }
 
-/// Widget reusable untuk menampilkan info card
 class _InfoCard extends StatelessWidget {
-  const _InfoCard({required this.title, required this.content});
+  const _InfoCard({
+    required this.title,
+    required this.content,
+    this.highlight = false,
+  });
 
   final String title;
   final String content;
+  final bool highlight;
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +126,7 @@ class _InfoCard extends StatelessWidget {
 
     return Card(
       elevation: 4,
-      color: colorScheme.surface,
+      color: highlight ? colorScheme.primaryContainer : colorScheme.surface,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -142,12 +137,16 @@ class _InfoCard extends StatelessWidget {
               title,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.w600,
+                color: highlight ? colorScheme.onPrimaryContainer : null,
               ),
             ),
             const Divider(height: 16),
             Text(
               content,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: highlight ? colorScheme.onPrimaryContainer : null,
+                fontStyle: highlight ? FontStyle.italic : FontStyle.normal,
+              ),
             ),
           ],
         ),

@@ -80,7 +80,7 @@ class _TopAppBarWidgetState extends State<TopAppBarWidget> {
           if (context.canPop()) {
             context.pop();
           } else {
-            context.go(RouteConstants.plants);
+            context.go(RouteConstants.flowers);
           }
         },
       )

@@ -2,71 +2,65 @@
 
 import 'package:flutter/material.dart';
 
-/* =========================
-   BRAND COLORS (PLANT THEME)
-   ========================= */
-const Color kPlantGreen = Color(0xFF2E7D32);       // Hijau natural untuk tanaman
-const Color kPlantGreenLight = Color(0xFF4CAF50);  // Hijau lebih terang
-const Color kPlantGreenDark = Color(0xFF1B5E20);   // Hijau lebih gelap
-const Color kPlantAccent = Color(0xFF8BC34A);      // Hijau cerah sebagai aksen
+// BRAND COLORS (FLOWER THEME)
+const Color kFlowerPink     = Color(0xFFD81B60);
+const Color kFlowerPinkLight = Color(0xFFF06292);
+const Color kFlowerPinkDark  = Color(0xFF880E4F);
+const Color kFlowerAccent    = Color(0xFFFF80AB);
 
-const Color kDelcomYellow = Color(0xFFFFC107);
-const Color kDelcomYellowSoft = Color(0xFFFFE082);
+const Color kPetalCream  = Color(0xFFFFF8E1);
+const Color kPetalPurple = Color(0xFFCE93D8);
 
-/* =========================
-   LIGHT THEME (PLANT THEME)
-   ========================= */
-const Color kLightPrimary = kPlantGreen;
-const Color kLightOnPrimary = Colors.white;
-const Color kLightPrimaryContainer = Color(0xFFC8E6C9);
-const Color kLightOnPrimaryContainer = Color(0xFF002107);
+// LIGHT THEME
+const Color kLightPrimary            = kFlowerPink;
+const Color kLightOnPrimary          = Colors.white;
+const Color kLightPrimaryContainer   = Color(0xFFFFD6E7);
+const Color kLightOnPrimaryContainer = Color(0xFF3E0020);
 
-const Color kLightSecondary = kDelcomYellow;
-const Color kLightOnSecondary = Color(0xFF2A1F00);
-const Color kLightSecondaryContainer = kDelcomYellowSoft;
-const Color kLightOnSecondaryContainer = Color(0xFF2A1F00);
+const Color kLightSecondary            = Color(0xFF7B1FA2);
+const Color kLightOnSecondary          = Colors.white;
+const Color kLightSecondaryContainer   = kPetalPurple;
+const Color kLightOnSecondaryContainer = Color(0xFF1A0030);
 
-const Color kLightTertiary = kPlantGreenDark;
+const Color kLightTertiary   = Color(0xFFF06292);
 const Color kLightOnTertiary = Colors.white;
 
-const Color kLightError = Color(0xFFBA1A1A);
-const Color kLightOnError = Colors.white;
-const Color kLightErrorContainer = Color(0xFFFFDAD6);
+const Color kLightError            = Color(0xFFBA1A1A);
+const Color kLightOnError          = Colors.white;
+const Color kLightErrorContainer   = Color(0xFFFFDAD6);
 const Color kLightOnErrorContainer = Color(0xFF410002);
 
-const Color kLightBackground = Color(0xFFF8FBF8);
-const Color kLightOnBackground = Color(0xFF121212);
-const Color kLightSurface = Color(0xFFFAFFFA);
-const Color kLightOnSurface = Color(0xFF121212);
-const Color kLightSurfaceVariant = Color(0xFFE3EBE3);
-const Color kLightOnSurfaceVariant = Color(0xFF444944);
-const Color kLightOutline = Color(0xFF747C74);
+const Color kLightBackground       = Color(0xFFFFF0F5);
+const Color kLightOnBackground     = Color(0xFF1A0010);
+const Color kLightSurface          = Color(0xFFFFF5F8);
+const Color kLightOnSurface        = Color(0xFF1A0010);
+const Color kLightSurfaceVariant   = Color(0xFFEDD5E0);
+const Color kLightOnSurfaceVariant = Color(0xFF4A3040);
+const Color kLightOutline          = Color(0xFF9E7080);
 
-/* =========================
-   DARK THEME (PLANT THEME)
-   ========================= */
-const Color kDarkPrimary = kPlantGreenLight;
-const Color kDarkOnPrimary = Colors.black;
-const Color kDarkPrimaryContainer = Color(0xFF1A4F1D);
-const Color kDarkOnPrimaryContainer = Color(0xFFC8E6C9);
+// DARK THEME
+const Color kDarkPrimary            = kFlowerPinkLight;
+const Color kDarkOnPrimary          = Color(0xFF1A0010);
+const Color kDarkPrimaryContainer   = Color(0xFF6B0033);
+const Color kDarkOnPrimaryContainer = Color(0xFFFFD6E7);
 
-const Color kDarkSecondary = kDelcomYellow;
-const Color kDarkOnSecondary = Color(0xFF2A1F00);
-const Color kDarkSecondaryContainer = Color(0xFF5A4600);
-const Color kDarkOnSecondaryContainer = kDelcomYellowSoft;
+const Color kDarkSecondary            = kPetalPurple;
+const Color kDarkOnSecondary          = Color(0xFF1A0030);
+const Color kDarkSecondaryContainer   = Color(0xFF4A0070);
+const Color kDarkOnSecondaryContainer = kPetalPurple;
 
-const Color kDarkTertiary = kPlantAccent;
-const Color kDarkOnTertiary = Colors.black;
+const Color kDarkTertiary   = kFlowerAccent;
+const Color kDarkOnTertiary = Color(0xFF1A0010);
 
-const Color kDarkError = Color(0xFFFFB4AB);
-const Color kDarkOnError = Color(0xFF690005);
-const Color kDarkErrorContainer = Color(0xFF93000A);
+const Color kDarkError            = Color(0xFFFFB4AB);
+const Color kDarkOnError          = Color(0xFF690005);
+const Color kDarkErrorContainer   = Color(0xFF93000A);
 const Color kDarkOnErrorContainer = Color(0xFFFFDAD6);
 
-const Color kDarkBackground = Color(0xFF0E120E);
-const Color kDarkOnBackground = Color(0xFFEAEAEA);
-const Color kDarkSurface = Color(0xFF121812);
-const Color kDarkOnSurface = Color(0xFFEAEAEA);
-const Color kDarkSurfaceVariant = Color(0xFF3A423A);
-const Color kDarkOnSurfaceVariant = Color(0xFFC4C7C4);
-const Color kDarkOutline = Color(0xFF8E918E);
+const Color kDarkBackground       = Color(0xFF150010);
+const Color kDarkOnBackground     = Color(0xFFEEDDE5);
+const Color kDarkSurface          = Color(0xFF1E0015);
+const Color kDarkOnSurface        = Color(0xFFEEDDE5);
+const Color kDarkSurfaceVariant   = Color(0xFF4A2838);
+const Color kDarkOnSurfaceVariant = Color(0xFFD4B8C4);
+const Color kDarkOutline          = Color(0xFF9E7080);

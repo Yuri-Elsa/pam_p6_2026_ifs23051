@@ -26,7 +26,6 @@ class _HomeBody extends StatelessWidget {
       padding: const EdgeInsets.only(top: 16),
       child: Column(
         children: [
-          // Banner utama
           Card(
             margin: const EdgeInsets.symmetric(horizontal: 8),
             elevation: 4,
@@ -34,7 +33,7 @@ class _HomeBody extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Text(
-                '🌳 Delcom Plants 🌳',
+                '🌸 Delcom Flowers 🌸',
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                   color: colorScheme.primary,
                 ),
@@ -42,13 +41,27 @@ class _HomeBody extends StatelessWidget {
               ),
             ),
           ),
-
+          const SizedBox(height: 8),
+          Card(
+            margin: const EdgeInsets.symmetric(horizontal: 8),
+            elevation: 2,
+            color: colorScheme.primaryContainer,
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Text(
+                '"Setiap bunga memiliki bahasanya sendiri,\nsebuah pesan rahasia yang dikirim hati."',
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: colorScheme.onPrimaryContainer,
+                  fontStyle: FontStyle.italic,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
           const SizedBox(height: 16),
-
-          // Grid emoji tanaman
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: ['🌱', '🌿', '🍃', '🥬'].map((emoji) {
+            children: ['🌹', '🌷', '🌺', '🌸'].map((emoji) {
               return Card(
                 margin: const EdgeInsets.all(8),
                 elevation: 4,

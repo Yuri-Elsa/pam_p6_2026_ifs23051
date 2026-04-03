@@ -31,7 +31,7 @@ class _DelcomPlantsAppState extends State<DelcomPlantsApp> {
         valueListenable: _themeNotifier,
         builder: (context, themeMode, child) {
           return MaterialApp.router(
-            title: 'Delcom Plants',
+            title: 'Delcom Flowers',
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             themeMode: themeMode,   // Dikontrol oleh ThemeNotifier

@@ -2,7 +2,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pam_p6_2026_ifs23051/data/dummy_data.dart';
-import 'package:pam_p6_2026_ifs23051/data/models/plant_model.dart';
+import 'package:pam_p6_2026_ifs23051/data/models/flower_model.dart';
 
 void main() {
   group('DummyData.getPlantsData()', () {

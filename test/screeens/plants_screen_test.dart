@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pam_p6_2026_ifs23051/core/theme/app_theme.dart';
 import 'package:pam_p6_2026_ifs23051/core/theme/theme_notifier.dart';
 import 'package:pam_p6_2026_ifs23051/data/dummy_data.dart';
-import 'package:pam_p6_2026_ifs23051/features/plants/plants_screen.dart';
+import 'package:pam_p6_2026_ifs23051/features/plants/flowers_screen.dart';
 
 Widget buildPlantsTest() {
   final notifier = ThemeNotifier(initial: ThemeMode.light);

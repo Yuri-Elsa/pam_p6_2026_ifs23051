@@ -1,83 +1,81 @@
 // lib/data/dummy_data.dart
 
-import 'models/plant_model.dart';
+import 'models/flower_model.dart';
 
-/// Kelas untuk menyimpan data statis (dummy)
-/// Menggunakan static method agar tidak perlu instansiasi
 class DummyData {
   DummyData._();
 
-  static List<PlantModel> getPlantsData() {
+  static List<FlowerModel> getFlowersData() {
     return const [
-      PlantModel(
-        nama: 'Bawang Merah',
-        gambar: 'assets/images/img_bawang_merah.png',
-        deskripsi: 'Bawang merah adalah umbi yang banyak digunakan sebagai bumbu dapur dan memiliki aroma kuat.',
-        manfaat: 'Membantu meningkatkan daya tahan tubuh, mengurangi peradangan, dan mendukung kesehatan jantung.',
-        efekSamping: 'Dapat menyebabkan iritasi mata dan gangguan pencernaan jika dikonsumsi berlebihan.',
+      FlowerModel(
+        nama: 'Mawar Merah',
+        gambar: 'assets/images/img_mawar_merah.png',
+        deskripsi: 'Mawar merah adalah bunga yang paling populer di dunia dengan kelopak halus dan aroma wangi yang khas.',
+        bahasaBunga: 'Cinta yang mendalam, hasrat, dan keberanian. Melambangkan perasaan romantis yang tulus dan abadi.',
+        asalDaerah: 'Asia Barat & Eropa',
       ),
-      PlantModel(
-        nama: 'Bawang Putih',
-        gambar: 'assets/images/img_bawang_putih.png',
-        deskripsi: 'Bawang putih merupakan tanaman umbi dengan aroma khas yang sering digunakan sebagai bumbu dasar.',
-        manfaat: 'Mendukung kesehatan jantung, membantu meningkatkan imunitas, dan memiliki efek antibakteri alami.',
-        efekSamping: 'Dapat menyebabkan bau mulut, mulas, dan iritasi lambung ketika konsumsi berlebih.',
+      FlowerModel(
+        nama: 'Mawar Putih',
+        gambar: 'assets/images/img_mawar_putih.png',
+        deskripsi: 'Mawar putih memancarkan keanggunan dengan kelopaknya yang bersih dan murni.',
+        bahasaBunga: 'Kemurnian, ketulusan, dan kesucian. Sering digunakan dalam pernikahan sebagai simbol cinta sejati.',
+        asalDaerah: 'Asia & Eropa',
       ),
-      PlantModel(
-        nama: 'Brokoli',
-        gambar: 'assets/images/img_brokoli.png',
-        deskripsi: 'Brokoli adalah sayuran hijau yang kaya vitamin, mineral, dan serat.',
-        manfaat: 'Membantu detoksifikasi, menjaga kesehatan mata, dan mendukung sistem kekebalan tubuh.',
-        efekSamping: 'Dapat menyebabkan kembung dan gas pada beberapa orang.',
+      FlowerModel(
+        nama: 'Tulip Merah',
+        gambar: 'assets/images/img_tulip_merah.png',
+        deskripsi: 'Tulip merah adalah bunga musim semi yang ikonik dengan bentuk cangkir yang elegan.',
+        bahasaBunga: 'Deklarasi cinta yang sempurna. Mengungkapkan perasaan "Aku mencintaimu" dengan cara yang paling indah.',
+        asalDaerah: 'Turki & Belanda',
       ),
-      PlantModel(
-        nama: 'Cabai',
-        gambar: 'assets/images/img_cabai.png',
-        deskripsi: 'Cabai adalah buah pedas yang sering digunakan untuk menambah rasa pada makanan.',
-        manfaat: 'Meningkatkan metabolisme, membantu peredaran darah, dan kaya vitamin C.',
-        efekSamping: 'Dapat menyebabkan iritasi lambung, heartburn, dan diare jika terlalu banyak.',
+      FlowerModel(
+        nama: 'Lavender',
+        gambar: 'assets/images/img_lavender.png',
+        deskripsi: 'Lavender dikenal dengan warna ungu lembut dan aromanya yang menenangkan jiwa.',
+        bahasaBunga: 'Ketenangan, kesetiaan, dan keheningan. Melambangkan rasa cinta yang diam namun mendalam.',
+        asalDaerah: 'Mediterania',
       ),
-      PlantModel(
-        nama: 'Kentang',
-        gambar: 'assets/images/img_kentang.png',
-        deskripsi: 'Kentang adalah umbi yang menjadi sumber karbohidrat dan energi.',
-        manfaat: 'Memberikan energi, mendukung pencernaan, dan kaya vitamin B serta kalium.',
-        efekSamping: 'Jika digoreng dapat meningkatkan kalori dan risiko kenaikan berat badan.',
+      FlowerModel(
+        nama: 'Bunga Matahari',
+        gambar: 'assets/images/img_bunga_matahari.png',
+        deskripsi: 'Bunga matahari selalu menghadap ke arah matahari, mencerminkan kesetiaan dan keceriaan.',
+        bahasaBunga: 'Kesetiaan, kebahagiaan, dan harapan. Simbol kekaguman yang hangat kepada seseorang.',
+        asalDaerah: 'Amerika Utara',
       ),
-      PlantModel(
-        nama: 'Kol',
-        gambar: 'assets/images/img_kol.png',
-        deskripsi: 'Kol adalah sayuran daun yang banyak digunakan dalam masakan Asia.',
-        manfaat: 'Membantu pencernaan, kaya vitamin C dan K, serta menjaga kesehatan kulit.',
-        efekSamping: 'Dapat menyebabkan gas dan perut kembung bila dikonsumsi berlebihan.',
+      FlowerModel(
+        nama: 'Sakura',
+        gambar: 'assets/images/img_sakura.png',
+        deskripsi: 'Sakura atau bunga ceri Jepang mekar singkat namun meninggalkan kesan yang tak terlupakan.',
+        bahasaBunga: 'Keindahan yang fana, kehidupan yang singkat namun bermakna. Melambangkan kelembutan dan kecantikan.',
+        asalDaerah: 'Jepang & Korea',
       ),
-      PlantModel(
-        nama: 'Terong',
-        gambar: 'assets/images/img_terong.png',
-        deskripsi: 'Terong adalah sayuran berwarna ungu atau hijau dengan tekstur lembut.',
-        manfaat: 'Membantu mengontrol kadar gula darah, menjaga kesehatan jantung, dan kaya antioksidan.',
-        efekSamping: 'Pada beberapa orang dapat menyebabkan alergi ringan atau gangguan pencernaan.',
+      FlowerModel(
+        nama: 'Anggrek Bulan',
+        gambar: 'assets/images/img_anggrek_bulan.png',
+        deskripsi: 'Anggrek bulan adalah bunga nasional Indonesia yang anggun dengan kelopak lebar berwarna putih.',
+        bahasaBunga: 'Keanggunan, kemewahan, dan keindahan abadi. Simbol cinta yang halus dan penuh pesona.',
+        asalDaerah: 'Indonesia',
       ),
-      PlantModel(
-        nama: 'Mentimun',
-        gambar: 'assets/images/img_mentimun.png',
-        deskripsi: 'Mentimun adalah buah yang kaya air dan sering digunakan sebagai lalapan atau bahan salad.',
-        manfaat: 'Membantu hidrasi, menjaga kesehatan kulit, dan mendukung pencernaan.',
-        efekSamping: 'Bila terlalu banyak dapat menyebabkan sering buang air kecil atau kembung.',
+      FlowerModel(
+        nama: 'Melati',
+        gambar: 'assets/images/img_melati.png',
+        deskripsi: 'Melati adalah bunga nasional Indonesia yang dikenal dengan aroma wanginya yang lembut dan memikat.',
+        bahasaBunga: 'Kesucian, kerendahan hati, dan kasih sayang. Dalam budaya Indonesia melambangkan cinta yang tulus.',
+        asalDaerah: 'Asia Selatan & Asia Tenggara',
       ),
-      PlantModel(
-        nama: 'Tomat',
-        gambar: 'assets/images/img_tomat.png',
-        deskripsi: 'Tomat adalah buah yang banyak digunakan dalam masakan dan kaya antioksidan.',
-        manfaat: 'Mendukung kesehatan mata, menjaga kesehatan jantung, dan baik untuk kulit.',
-        efekSamping: 'Dapat menyebabkan asam lambung meningkat pada beberapa orang.',
+      FlowerModel(
+        nama: 'Lotus',
+        gambar: 'assets/images/img_lotus.png',
+        deskripsi: 'Lotus tumbuh di air berlumpur namun mekar dengan indah dan bersih ke permukaan.',
+        bahasaBunga: 'Pencerahan spiritual, kebangkitan, dan kemurnian jiwa. Simbol keindahan yang lahir dari kesulitan.',
+        asalDaerah: 'Asia & Australia',
       ),
-      PlantModel(
-        nama: 'Wortel',
-        gambar: 'assets/images/img_wortel.png',
-        deskripsi: 'Wortel adalah sayuran berwarna oranye yang kaya beta-karoten.',
-        manfaat: 'Membantu menjaga kesehatan mata, meningkatkan imunitas, dan baik untuk kulit.',
-        efekSamping: 'Konsumsi berlebihan dapat membuat kulit agak kekuningan (karotenemia).',
+      FlowerModel(
+        nama: 'Dahlia',
+        gambar: 'assets/images/img_dahlia.png',
+        deskripsi: 'Dahlia memiliki kelopak berlapis yang rumit dengan warna-warna yang kaya dan beragam.',
+        bahasaBunga: 'Komitmen abadi, keanggunan, dan kekuatan batin. Melambangkan ikatan yang tidak mudah goyah.',
+        asalDaerah: 'Meksiko & Amerika Tengah',
       ),
     ];
   }
